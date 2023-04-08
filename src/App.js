@@ -12,7 +12,8 @@ function App() {
 	const [visible, setVisible] = React.useState(false);  
 
 	function OnHandle(event) {
-		axios.get("http://192.168.1.35:3000/api")
+        //You can change localhost with your server IP address
+		axios.get("http://localhost:3000/api")
 			.then(res => {
 				const persons = res.data;
 				setData(persons.message);
@@ -27,7 +28,8 @@ function App() {
 		event.preventDefault();
 
 		const user = { name: name };
-		axios.post("http://192.168.1.35:3000/post", user)
+        //You can change localhost with your server IP address
+		axios.post("http://localhost:3000/post", user)
 			.then(res => {
 				console.log(res);
 				console.log(res.data.message);
@@ -40,7 +42,8 @@ function App() {
 
 	function handleGetName(event) {
 		event.preventDefault();
-		axios.get("http://192.168.1.35:3000/getName?name=" + nameToNode)
+        //You can change localhost with your server IP address
+		axios.get("http://localhost:3000/getName?name=" + nameToNode)
 			.then(res => {
 				const persons = res.data;
 				setNameFromServer(persons.message);
